@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Idealninajemce.cz scripts</title>
+    <!-- DEPENDENCIES: START -->
+    <script type="module" src="./main.js"></script>
+    <!-- OPTIONAL CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- DEPENDENCIES: END -->
+  </head>
+  <body>
+    <div id="app">
+      <h1>Idealninajemce.cz scripts</h1>
+
+      <h2>1. Cookies handling</h2>
+      <p>JS only</p>
+      <hr />
+      <h2>2. AJAXify</h2>
+      <form action="" data-url="https://devapi.idealninajemce.cz/contact/calculate" data-success="showOnSuccess" data-error="showOnError" data-msg="errrorMsg">
+        <div class="form-group">
+          <div class="row" style="width: 100%; margin: 0">
+            <div class="col-md-6 col-xs-12">
+              <!-- <select name="village_id" class="selectpickerCity" type="text" placeholder="Obec">
+                <option>test</option>
+                <option>test 2</option>
+              </select>
+
+              <select name="street_id" class="selectpickerStreet" type="text" placeholder="Ulice">
+                <option>test</option>
+                <option>test 2</option>
+              </select> -->
+
+              <div class="row">
+                <div class="col-md-6">
+                  <select name="disposition_id">
+                    <option value="" disabled selected>Dispozice</option>
+                    <option value="1">garsonka</option>
+                    <option value="2">1+kk</option>
+                    <option value="3">1+1</option>
+                    <option value="4">2+kk</option>
+                    <option value="5">2+1</option>
+                    <option value="6">3+kk</option>
+                    <option value="7">3+1</option>
+                    <option value="8">4+kk</option>
+                    <option value="9">4+1</option>
+                    <option value="10">5+kk</option>
+                    <option value="11">5+1</option>
+                    <option value="12">6+kk</option>
+                    <option value="13">6+1</option>
+                    <option value="14">7+kk</option>
+                    <option value="15">7+1</option>
+                    <option value="16">atypicky</option>
+                    <option value="29">dum</option>
+                    <option value="shared_room">Sdileny pokoj</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <input name="vymera" type="text" placeholder="Vymera" />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+              <input name="jmeno" class="end" type="text" placeholder="Jmeno a prijmeni­" />
+              <input name="email" type="email" placeholder="Vas email" />
+              <input name="phone" class="end" type="phone" placeholder="Telefonni cislo" />
+
+              <input name="file" type="file" />
+            </div>
+          </div>
+        </div>
+
+        <div class="checkbox text-center">
+          <label>
+            <input name="toc" type="checkbox" />
+            Souhlasim se
+            <a href="#" data-toggle="modal" data-target="#modal-toc">zpracovanim osobnich udaju</a>.
+          </label>
+        </div>
+        <div class="checkbox text-center">
+          <label>
+            <input name="send-email" type="checkbox" />
+            Chci dostavat
+            <a target="_blank" href="/pouceni-o-soukromi">e-mailem</a>
+            rady a&nbsp;tipy o&nbsp;pronajmu bytu.
+          </label>
+          <a href="#" data-toggle="modal" data-target="#modalGdprEmail"><i class="fa fa-question-circle" style="color: #aba8a3; font-size: 17px" aria-hidden="true"></i></a>
+        </div>
+        <button type="submit" class="btn big">Nacenit pronajem</button>
+
+        <div id="showOnSuccess" style="display: none">
+          <h1>Toto se zobrazi pri uspesnem zpracovani nacenovaciho formulare/ API odpoved je OK 200</h1>
+        </div>
+
+        <div id="showOnError" style="display: none">
+          <h1>Toto se zobrazi pri NEuspesnem zpracovani nacenovaciho formulare/ API odpoved je jakakoliv jine nez OK 200</h1>
+          <h2 id="errrorMsg">Do tohoto tagu se propise obsah "message" hodnoty z vraceneho json.</h2>
+        </div>
+      </form>
+
+      <hr />
+
+      <form
+        action=""
+        data-url="https://devapi.idealninajemce.cz/newsletter/signup"
+        data-success="newslettershowOnSuccess"
+        data-error="newsletterShowOnError"
+        data-msg="newsletterErrrorMsg"
+      >
+        <input placeholder="E-mail" type="text" name="email" />
+        <button type="submit" class="btn" name="_submit">submit</button>
+
+        <div id="newslettershowOnSuccess" style="display: none">
+          <h1>Toto se zobrazi pri uspesnem zpracovani newsletter formulare/ API odpoved je OK 200</h1>
+        </div>
+
+        <div id="newsletterShowOnError" style="display: none">
+          <h1>Toto se zobrazi pri NEuspesnem zpracovani newsletter formulare/ API odpoved je jakakoliv jine nez OK 200</h1>
+          <h2 id="newsletterErrrorMsg">Do tohoto tagu se propise obsah "message" hodnoty z vraceneho json.</h2>
+        </div>
+      </form>
+    </div>
+    <hr />
+    <h2>3. Picker</h2>
+    <div>
+      <select class="selectpickerCity" type="text" placeholder="Obec">
+        <option></option>
+      </select>
+    </div>
+    <div>
+      <select class="selectpickerStreet" type="text" placeholder="Ulice">
+        <option></option>
+      </select>
+    </div>
+    <hr />
+    <h2>4. Slider</h2>
+    <div>
+      <input type="range" id="rangeCalculator" value="8000" min="8000" max="40000" step="500" />
+      <div>
+        slider value:
+        <span id="rangeCalculatorInputValue"></span>
+      </div>
+      <div>
+        me:
+        <span id="rangeCalculatorResultByMe"></span>
+      </div>
+      <div>
+        IN:
+        <span id="rangeCalculatorResultByIN"></span>
+      </div>
+    </div>
+    <hr />
+    <h2>5. Translation</h2>
+    <p>See JS code</p>
+    <div>
+      <div class="lang-switch-wrapper">
+        <button class="lang-toggle-to-en">Toggle to English</button>
+        <button class="lang-toggle-to-cs">Prepnout na cestinu</button>
+      </div>
+      <div class="lang-cs">Cesky obash...</div>
+      <div class="lang-cs">Dalsi cesky obash...</div>
+      <div class="lang-cs">Jeste dalsi cesky obash...</div>
+      <div class="lang-en">English content example...</div>
+      <div class="lang-en">Second English content example...</div>
+    </div>
+    <hr />
+    <h2>6. Datepicker</h2>
+    <!-- type="date" doesn't work correctly across browsers, please use type="text" -->
+    <input type="text" class="date" />
+  </body>
+</html>
