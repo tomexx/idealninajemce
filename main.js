@@ -74,7 +74,7 @@ $(function () {
     const apiUrl = $(form).data('url')
     const wrapperSuccessId = $(form).data('success')
     const wrapperErrorId = $(form).data('error')
-    const wrapperErrorMsgId = $(form).data('error-msg')
+    const wrapperErrorMsgId = $(form).data('msg')
 
     $(form).on('submit', function (e) {
       e.preventDefault()
@@ -175,7 +175,9 @@ $(function () {
       },
       processResults: (data) => {
         if (data.streets.length === 0) {
-          $('.form-calculate select.selectpickerStreet').html(`<option selected value="${$('input.select2-search__field').val()}"></option>`)
+          $('.form-calculate select.selectpickerStreet').html(
+            `<option selected value="${$('input.select2-search__field').val()}"></option>`
+          )
         }
         return {
           results: $.map(data.streets, (el, id) => {
