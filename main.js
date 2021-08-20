@@ -64,11 +64,9 @@ $(function () {
     }
 
     // handle path
-    if (urlParams.q) {
-      Cookies.set(COOKIE_WEB_ENTRY_PAGE, document.location.pathname, {
-        expires: COOKIES_EXPIRATION,
-      })
-    }
+    Cookies.set(COOKIE_WEB_ENTRY_PAGE, document.location.pathname, {
+      expires: COOKIES_EXPIRATION,
+    })
   }
 
   // 2 - AJAXify
