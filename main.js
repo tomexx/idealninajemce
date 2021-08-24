@@ -101,6 +101,12 @@ $(function () {
           $(`#${wrapperErrorId}`).fadeOut()
         },
         success: (data) => {
+          dataLayer.push({
+            event: 'ga.event',
+            eCat: 'form-submit',
+            eAct: 'název formu atribut',
+            eLab: document.location.pathname,
+          })
           this.reset()
           $(`#${wrapperSuccessId}`).fadeIn()
         },
