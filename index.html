@@ -4,12 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Idealninajemce.cz scripts</title>
-    <!-- DEPENDENCIES: START -->
-    <script type="module" src="./main.js"></script>
-    <!-- OPTIONAL CSS -->
     <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <!-- DEPENDENCIES: END -->
+    <script type="module" src="./main.js"></script>
   </head>
   <body>
     <div id="app">
@@ -19,7 +16,13 @@
       <p>JS only</p>
       <hr />
       <h2>2. AJAXify</h2>
-      <form action="" data-url="https://devapi.idealninajemce.cz/contact/calculate" data-success="showOnSuccess" data-error="showOnError" data-msg="errrorMsg">
+      <form
+        action=""
+        data-url="https://devapi.idealninajemce.cz/contact/calculate"
+        data-success="showOnSuccess"
+        data-error="showOnError"
+        data-msg="errrorMsg"
+      >
         <div class="form-group">
           <div class="row" style="width: 100%; margin: 0">
             <div class="col-md-6 col-xs-12">
@@ -87,7 +90,9 @@
             <a target="_blank" href="/pouceni-o-soukromi">e-mailem</a>
             rady a&nbsp;tipy o&nbsp;pronajmu bytu.
           </label>
-          <a href="#" data-toggle="modal" data-target="#modalGdprEmail"><i class="fa fa-question-circle" style="color: #aba8a3; font-size: 17px" aria-hidden="true"></i></a>
+          <a href="#" data-toggle="modal" data-target="#modalGdprEmail"
+            ><i class="fa fa-question-circle" style="color: #aba8a3; font-size: 17px" aria-hidden="true"></i
+          ></a>
         </div>
         <button type="submit" class="btn big">Nacenit pronajem</button>
 
@@ -96,7 +101,9 @@
         </div>
 
         <div id="showOnError" style="display: none">
-          <h1>Toto se zobrazi pri NEuspesnem zpracovani nacenovaciho formulare/ API odpoved je jakakoliv jine nez OK 200</h1>
+          <h1>
+            Toto se zobrazi pri NEuspesnem zpracovani nacenovaciho formulare/ API odpoved je jakakoliv jine nez OK 200
+          </h1>
           <h2 id="errrorMsg">Do tohoto tagu se propise obsah "message" hodnoty z vraceneho json.</h2>
         </div>
       </form>
@@ -118,7 +125,9 @@
         </div>
 
         <div id="newsletterShowOnError" style="display: none">
-          <h1>Toto se zobrazi pri NEuspesnem zpracovani newsletter formulare/ API odpoved je jakakoliv jine nez OK 200</h1>
+          <h1>
+            Toto se zobrazi pri NEuspesnem zpracovani newsletter formulare/ API odpoved je jakakoliv jine nez OK 200
+          </h1>
           <h2 id="newsletterErrrorMsg">Do tohoto tagu se propise obsah "message" hodnoty z vraceneho json.</h2>
         </div>
       </form>
