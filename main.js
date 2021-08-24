@@ -72,6 +72,7 @@ $(function () {
   // 2 - AJAXify
   $(SELECTOR_FORM).each((_, form) => {
     const apiUrl = $(form).data('url')
+    const formName = $(form).attr('name')
     const wrapperSuccessId = $(form).data('success')
     const wrapperErrorId = $(form).data('error')
     const wrapperErrorMsgId = $(form).data('msg')
@@ -103,7 +104,7 @@ $(function () {
           dataLayer.push({
             event: 'ga.event',
             eCat: 'form-submit',
-            eAct: 'název formu atribut',
+            eAct: formName,
             eLab: document.location.pathname,
           })
           this.reset()
