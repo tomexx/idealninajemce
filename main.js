@@ -31,6 +31,7 @@ const SELECTOR_SLIDER_INPUT = '#rangeCalculator'
 const SELECTOR_SLIDER_INPUT_VALUE = '#rangeCalculatorInputValue'
 const SELECTOR_SLIDER_RESULT_ME = '#rangeCalculatorResultByMe'
 const SELECTOR_SLIDER_RESULT_IN = '#rangeCalculatorResultByIN'
+const SELECTOR_SLIDER_LOCALE = 'cs-CZ'
 
 const API = 'https://devapi.idealninajemce.cz'
 
@@ -205,10 +206,15 @@ $(function () {
   // 4 - slider
   $(SELECTOR_SLIDER_INPUT).on('input', (e) => {
     const input = new Big(e.target.value)
-    $(SELECTOR_SLIDER_INPUT_VALUE).text(input.toString())
-    const meResult = input.minus(input.times(1.75).div(12)).minus(1100).round(-1).toString()
+    $(SELECTOR_SLIDER_INPUT_VALUE).text(input.toNumber().toLocaleString(SELECTOR_SLIDER_LOCALE))
+    const meResult = input
+      .minus(input.times(1.75).div(12))
+      .minus(1100)
+      .round(-1)
+      .toNumber()
+      .toLocaleString(SELECTOR_SLIDER_LOCALE)
     $(SELECTOR_SLIDER_RESULT_ME).text(meResult)
-    const inResult = input.times(0.88).round(-1).toString()
+    const inResult = input.times(0.88).round(-1).toNumber().toLocaleString(SELECTOR_SLIDER_LOCALE)
     $(SELECTOR_SLIDER_RESULT_IN).text(inResult)
   })
   $(SELECTOR_SLIDER_INPUT).trigger('input')
