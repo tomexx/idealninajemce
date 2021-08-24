@@ -17,7 +17,6 @@ const ORIGIN_DOMAIN = 'idealninajemce.cz'
 const SELECTOR_FORM = 'form[data-url]'
 const FORM_SUBMIT_PAGE = 'IN_web_submit_page'
 
-const SELECTOR_TRANSLATION_TOGGLE_WRAPPER = '.lang-switch-wrapper'
 const SELECTOR_TRANSLATION_TOGGLE_EN = '.lang-toggle-to-en'
 const SELECTOR_TRANSLATION_TOGGLE_CS = '.lang-toggle-to-cs'
 const SELECTOR_TRANSLATION_CONTENT_EN = '.lang-en'
