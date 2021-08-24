@@ -242,12 +242,10 @@ $(function () {
     }
   }
 
-  if ($(SELECTOR_TRANSLATION_TOGGLE_WRAPPER).length) {
-    if (Cookies.get(COOKIE_LANG) === 'en') {
-      toggleToEn()
-    } else {
-      toggleToCs()
-    }
+  if (Cookies.get(COOKIE_LANG) === 'en') {
+    toggleToEn()
+  } else {
+    toggleToCs()
   }
 
   $(SELECTOR_TRANSLATION_TOGGLE_EN).on('click', () => {
