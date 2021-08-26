@@ -17,6 +17,7 @@ const ORIGIN_DOMAIN = 'idealninajemce.cz'
 const SELECTOR_FORM = 'form[data-url]'
 const SELECTOR_FORM_CONTENT = '.form-content'
 const SELECTOR_FORM_SUBMIT = 'button[type="submit"]'
+const SELECTOR_FORM_LOADING = '.form-loading'
 const FORM_SUBMIT_PAGE = 'IN_web_submit_page'
 
 const SELECTOR_TRANSLATION_TOGGLE_EN = '.lang-toggle-to-en'
@@ -80,6 +81,7 @@ $(function () {
     const wrapperErrorMsgId = $(form).data('msg')
     const submitButton = $(form).find(SELECTOR_FORM_SUBMIT)
     const formContent = $(form).find(SELECTOR_FORM_CONTENT)
+    const formLoading = $(form).find(SELECTOR_FORM_LOADING)
 
     $(form).on('submit', function (e) {
       e.preventDefault()
@@ -103,6 +105,7 @@ $(function () {
         beforeSend: () => {
           $(`#${wrapperSuccessId}`).fadeOut()
           $(`#${wrapperErrorId}`).fadeOut()
+          $(formLoading).fadeIn()
           $(formContent).fadeIn()
           $(submitButton).attr('disabled', true)
         },
@@ -121,8 +124,10 @@ $(function () {
         error: (e) => {
           $(`#${wrapperErrorMsgId}`).text(e.responseJSON?.message)
           $(`#${wrapperErrorId}`).fadeIn()
+          $(formContent).fadeIn()
         },
         complete: () => {
+          $(formLoading).fadeOut()
           $(submitButton).attr('disabled', false)
         },
       })
