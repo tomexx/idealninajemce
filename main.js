@@ -15,6 +15,7 @@ const COOKIE_LANG = 'lang'
 const ORIGIN_DOMAIN = 'idealninajemce.cz'
 
 const SELECTOR_FORM = 'form[data-url]'
+const SELECTOR_FORM_CONTENT = '.form-content'
 const SELECTOR_FORM_SUBMIT = 'button[type="submit"]'
 const FORM_SUBMIT_PAGE = 'IN_web_submit_page'
 
@@ -78,6 +79,7 @@ $(function () {
     const wrapperErrorId = $(form).data('error')
     const wrapperErrorMsgId = $(form).data('msg')
     const submitButton = $(form).find(SELECTOR_FORM_SUBMIT)
+    const formContent = $(form).find(SELECTOR_FORM_CONTENT)
 
     $(form).on('submit', function (e) {
       e.preventDefault()
@@ -101,9 +103,10 @@ $(function () {
         beforeSend: () => {
           $(`#${wrapperSuccessId}`).fadeOut()
           $(`#${wrapperErrorId}`).fadeOut()
+          $(formContent).fadeIn()
           $(submitButton).attr('disabled', true)
         },
-        success: (data) => {
+        success: () => {
           dataLayer.push({
             event: 'ga.event',
             eCat: 'form-submit',
@@ -111,7 +114,9 @@ $(function () {
             eLab: document.location.pathname,
           })
           this.reset()
-          $(`#${wrapperSuccessId}`).fadeIn()
+          $(formContent).fadeOut('normal', () => {
+            $(`#${wrapperSuccessId}`).fadeIn()
+          })
         },
         error: (e) => {
           $(`#${wrapperErrorMsgId}`).text(e.responseJSON?.message)

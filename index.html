@@ -24,78 +24,80 @@
         data-error="showOnError"
         data-msg="errrorMsg"
       >
-        <div class="form-group">
-          <div class="row" style="width: 100%; margin: 0">
-            <div class="col-md-6 col-xs-12">
-              <!-- <select name="village_id" class="selectpickerCity" type="text" placeholder="Obec">
-                <option>test</option>
-                <option>test 2</option>
-              </select>
+        <div class="form-content">
+          <div class="form-group">
+            <div class="row" style="width: 100%; margin: 0">
+              <div class="col-md-6 col-xs-12">
+                <!-- <select name="village_id" class="selectpickerCity" type="text" placeholder="Obec">
+                  <option>test</option>
+                  <option>test 2</option>
+                </select>
 
-              <select name="street_id" class="selectpickerStreet" type="text" placeholder="Ulice">
-                <option>test</option>
-                <option>test 2</option>
-              </select> -->
+                <select name="street_id" class="selectpickerStreet" type="text" placeholder="Ulice">
+                  <option>test</option>
+                  <option>test 2</option>
+                </select> -->
 
-              <div class="row">
-                <div class="col-md-6">
-                  <select name="disposition_id">
-                    <option value="" disabled selected>Dispozice</option>
-                    <option value="1">garsonka</option>
-                    <option value="2">1+kk</option>
-                    <option value="3">1+1</option>
-                    <option value="4">2+kk</option>
-                    <option value="5">2+1</option>
-                    <option value="6">3+kk</option>
-                    <option value="7">3+1</option>
-                    <option value="8">4+kk</option>
-                    <option value="9">4+1</option>
-                    <option value="10">5+kk</option>
-                    <option value="11">5+1</option>
-                    <option value="12">6+kk</option>
-                    <option value="13">6+1</option>
-                    <option value="14">7+kk</option>
-                    <option value="15">7+1</option>
-                    <option value="16">atypicky</option>
-                    <option value="29">dum</option>
-                    <option value="shared_room">Sdileny pokoj</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <input name="vymera" type="text" placeholder="Vymera" />
+                <div class="row">
+                  <div class="col-md-6">
+                    <select name="disposition_id">
+                      <option value="" disabled selected>Dispozice</option>
+                      <option value="1">garsonka</option>
+                      <option value="2">1+kk</option>
+                      <option value="3">1+1</option>
+                      <option value="4">2+kk</option>
+                      <option value="5">2+1</option>
+                      <option value="6">3+kk</option>
+                      <option value="7">3+1</option>
+                      <option value="8">4+kk</option>
+                      <option value="9">4+1</option>
+                      <option value="10">5+kk</option>
+                      <option value="11">5+1</option>
+                      <option value="12">6+kk</option>
+                      <option value="13">6+1</option>
+                      <option value="14">7+kk</option>
+                      <option value="15">7+1</option>
+                      <option value="16">atypicky</option>
+                      <option value="29">dum</option>
+                      <option value="shared_room">Sdileny pokoj</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <input name="vymera" type="text" placeholder="Vymera" />
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-md-6 col-xs-12">
-              <input name="jmeno" class="end" type="text" placeholder="Jmeno a prijmeni­" />
-              <input name="email" type="email" placeholder="Vas email" />
-              <input name="phone" class="end" type="phone" placeholder="Telefonni cislo" />
+              <div class="col-md-6 col-xs-12">
+                <input name="jmeno" class="end" type="text" placeholder="Jmeno a prijmeni­" />
+                <input name="email" type="email" placeholder="Vas email" />
+                <input name="phone" class="end" type="phone" placeholder="Telefonni cislo" />
 
-              <input name="file" type="file" />
+                <input name="file" type="file" />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="checkbox text-center">
-          <label>
-            <input name="toc" type="checkbox" />
-            Souhlasim se
-            <a href="#" data-toggle="modal" data-target="#modal-toc">zpracovanim osobnich udaju</a>.
-          </label>
+          <div class="checkbox text-center">
+            <label>
+              <input name="toc" type="checkbox" />
+              Souhlasim se
+              <a href="#" data-toggle="modal" data-target="#modal-toc">zpracovanim osobnich udaju</a>.
+            </label>
+          </div>
+          <div class="checkbox text-center">
+            <label>
+              <input name="send-email" type="checkbox" />
+              Chci dostavat
+              <a target="_blank" href="/pouceni-o-soukromi">e-mailem</a>
+              rady a&nbsp;tipy o&nbsp;pronajmu bytu.
+            </label>
+            <a href="#" data-toggle="modal" data-target="#modalGdprEmail"
+              ><i class="fa fa-question-circle" style="color: #aba8a3; font-size: 17px" aria-hidden="true"></i
+            ></a>
+          </div>
+          <button type="submit" class="btn big">Nacenit pronajem</button>
         </div>
-        <div class="checkbox text-center">
-          <label>
-            <input name="send-email" type="checkbox" />
-            Chci dostavat
-            <a target="_blank" href="/pouceni-o-soukromi">e-mailem</a>
-            rady a&nbsp;tipy o&nbsp;pronajmu bytu.
-          </label>
-          <a href="#" data-toggle="modal" data-target="#modalGdprEmail"
-            ><i class="fa fa-question-circle" style="color: #aba8a3; font-size: 17px" aria-hidden="true"></i
-          ></a>
-        </div>
-        <button type="submit" class="btn big">Nacenit pronajem</button>
 
         <div id="showOnSuccess" style="display: none">
           <h1>Toto se zobrazi pri uspesnem zpracovani nacenovaciho formulare/ API odpoved je OK 200</h1>
@@ -119,8 +121,10 @@
         data-error="newsletterShowOnError"
         data-msg="newsletterErrrorMsg"
       >
-        <input placeholder="E-mail" type="text" name="email" />
-        <button type="submit" class="btn" name="_submit">submit</button>
+        <div class="form-content">
+          <input placeholder="E-mail" type="text" name="email" />
+          <button type="submit" class="btn" name="_submit">submit</button>
+        </div>
 
         <div id="newslettershowOnSuccess" style="display: none">
           <h1>Toto se zobrazi pri uspesnem zpracovani newsletter formulare/ API odpoved je OK 200</h1>
