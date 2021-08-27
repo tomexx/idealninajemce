@@ -5,6 +5,8 @@ import queryString from 'query-string'
 import datepicker from 'js-datepicker'
 import Big from 'big.js'
 import select2 from 'select2'
+import lottie from 'lottie-web'
+import loadingAnimation from './assets/form-loading-lottie.json'
 
 // CONFIG
 const COOKIES_EXPIRATION = 180 // 180 days
@@ -81,7 +83,6 @@ $(function () {
     const wrapperErrorMsgId = $(form).data('msg')
     const submitButton = $(form).find(SELECTOR_FORM_SUBMIT)
     const formContent = $(form).find(SELECTOR_FORM_CONTENT)
-    const formLoading = $(form).find(SELECTOR_FORM_LOADING)
 
     $(form).on('submit', function (e) {
       e.preventDefault()
@@ -105,9 +106,16 @@ $(function () {
         beforeSend: () => {
           $(`#${wrapperSuccessId}`).fadeOut()
           $(`#${wrapperErrorId}`).fadeOut()
-          $(formLoading).fadeIn()
           $(formContent).fadeIn()
           $(submitButton).attr('disabled', true)
+          $(form).prepend('<div class="form-loading"></div>')
+          lottie.loadAnimation({
+            container: $('.form-loading')[0],
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            animationData: loadingAnimation,
+          })
         },
         success: () => {
           dataLayer.push({
@@ -127,7 +135,7 @@ $(function () {
           $(formContent).fadeIn()
         },
         complete: () => {
-          $(formLoading).fadeOut()
+          $(form).find(SELECTOR_FORM_LOADING).remove()
           $(submitButton).attr('disabled', false)
         },
       })
