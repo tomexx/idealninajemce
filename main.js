@@ -45,6 +45,9 @@ $(function () {
   // 0 - shared code in more sections
   const urlParams = queryString.parse(location.search)
 
+  // init data layer
+  window.dataLayer = window.dataLayer || []
+
   // 1 - general cookie handling
   // set all URL params to a cookie with expiration of 180 days
   Object.keys(urlParams).forEach((key) => {
@@ -118,7 +121,7 @@ $(function () {
           })
         },
         success: () => {
-          dataLayer.push({
+          window.dataLayer.push({
             event: 'ga.event',
             eCat: 'form-submit',
             eAct: formName,
