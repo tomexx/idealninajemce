@@ -291,13 +291,15 @@ $(function () {
   })
 
   // 6 - datepicker - type="date" doesn't work correctly across browsers, please use type="text"
-  const picker = datepicker(SELECTOR_INPUT_DATEPICKER, {
-    onSelect: (instance, date) => {
-      // TODO - process values somehow
-    },
-    formatter: (input, date, instance) => {
-      const value = date.toLocaleDateString('cs-CZ')
-      input.value = value
-    },
-  })
+  if ($(SELECTOR_INPUT_DATEPICKER).length) {
+    const picker = datepicker(SELECTOR_INPUT_DATEPICKER, {
+      onSelect: (instance, date) => {
+        // TODO - process values somehow
+      },
+      formatter: (input, date, instance) => {
+        const value = date.toLocaleDateString('cs-CZ')
+        input.value = value
+      },
+    })
+  }
 })
