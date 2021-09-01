@@ -129,9 +129,8 @@ $(function () {
             eLab: document.location.pathname,
           })
           this.reset()
-          $(formContent).fadeOut('normal', () => {
-            $(`#${wrapperSuccessId}`).fadeIn()
-          })
+          $(formContent).fadeOut()
+          $(`#${wrapperSuccessId}`).fadeIn()
         },
         error: (e) => {
           $(`#${wrapperErrorMsgId}`).text(e.responseJSON?.message)
