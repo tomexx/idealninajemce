@@ -20,6 +20,7 @@
         name="form1"
         data-url="https://devapi.idealninajemce.cz/contact/calculate"
         data-success="showOnSuccess"
+        data-loading="showOnLoading"
         data-error="showOnError"
         data-msg="errrorMsg"
       >
@@ -98,6 +99,8 @@
           <button type="submit" class="btn big">Nacenit pronajem</button>
         </div>
 
+        <div id="showOnLoading" style="width: 200px; height: 200px; display: none"></div>
+
         <div id="showOnSuccess" style="display: none">
           <h1>Toto se zobrazi pri uspesnem zpracovani nacenovaciho formulare/ API odpoved je OK 200</h1>
         </div>
@@ -116,6 +119,7 @@
         name="form2"
         data-url="https://devapi.idealninajemce.cz/newsletter/signup"
         data-success="newslettershowOnSuccess"
+        data-loading="showOnLoading"
         data-error="newsletterShowOnError"
         data-msg="newsletterErrrorMsg"
       >
@@ -123,6 +127,8 @@
           <input placeholder="E-mail" type="text" name="email" />
           <button type="submit" class="btn" name="_submit">submit</button>
         </div>
+
+        <div id="showOnLoading" style="width: 200px; height: 200px; display: none"></div>
 
         <div id="newslettershowOnSuccess" style="display: none">
           <h1>Toto se zobrazi pri uspesnem zpracovani newsletter formulare/ API odpoved je OK 200</h1>

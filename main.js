@@ -19,7 +19,6 @@ const ORIGIN_DOMAIN = 'idealninajemce.cz'
 const SELECTOR_FORM = 'form[data-url]'
 const SELECTOR_FORM_CONTENT = '.form-content'
 const SELECTOR_FORM_SUBMIT = 'button[type="submit"]'
-const SELECTOR_FORM_LOADING = '.form-loading'
 const FORM_SUBMIT_PAGE = 'IN_web_submit_page'
 
 const SELECTOR_TRANSLATION_TOGGLE_EN = '.lang-toggle-to-en'
@@ -83,6 +82,7 @@ $(function () {
     const formName = $(form).attr('name')
     const wrapperSuccessId = $(form).data('success')
     const wrapperErrorId = $(form).data('error')
+    const wrapperLoadingId = $(form).data('loading')
     const wrapperErrorMsgId = $(form).data('msg')
     const submitButton = $(form).find(SELECTOR_FORM_SUBMIT)
     const formContent = $(form).find(SELECTOR_FORM_CONTENT)
@@ -111,9 +111,10 @@ $(function () {
           $(`#${wrapperErrorId}`).fadeOut()
           $(formContent).fadeIn()
           $(submitButton).attr('disabled', true)
-          $(form).prepend('<div class="form-loading"></div>')
+
+          $(`#${wrapperLoadingId}`).show()
           lottie.loadAnimation({
-            container: $('.form-loading')[0],
+            container: $(`#${wrapperLoadingId}`)[0],
             renderer: 'svg',
             loop: true,
             autoplay: true,
@@ -138,7 +139,7 @@ $(function () {
           $(formContent).fadeIn()
         },
         complete: () => {
-          $(form).find(SELECTOR_FORM_LOADING).remove()
+          $(`#${wrapperLoadingId}`).hide()
           $(submitButton).attr('disabled', false)
         },
       })
